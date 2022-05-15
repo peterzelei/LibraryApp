@@ -38,7 +38,7 @@ namespace WebApi_Server.Controllers
 
             book.Id = GetNewId(books);
             book.IsBorrowed = false;
-            book.NameOfBorrower = "";
+            book.NameOfBorrower = string.Empty;
             book.DateOfBorrowing = System.DateTime.MinValue;
             book.DateOfReturn = System.DateTime.MinValue;
             books.Add(book);
