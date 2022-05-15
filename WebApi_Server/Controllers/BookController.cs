@@ -38,7 +38,9 @@ namespace WebApi_Server.Controllers
 
             book.Id = GetNewId(books);
             book.IsBorrowed = false;
+            book.NameOfBorrower = "";
             book.DateOfBorrowing = System.DateTime.MinValue;
+            book.DateOfReturn = System.DateTime.MinValue;
             books.Add(book);
 
             BookRepository.StoreBooks(books);
@@ -56,7 +58,9 @@ namespace WebApi_Server.Controllers
                 bookToUpdate.Author = book.Author;
                 bookToUpdate.Title = book.Title;
                 bookToUpdate.IsBorrowed = book.IsBorrowed;
+                bookToUpdate.NameOfBorrower = book.NameOfBorrower;
                 bookToUpdate.DateOfBorrowing = book.DateOfBorrowing;
+                bookToUpdate.DateOfReturn = book.DateOfReturn;
 
                 BookRepository.StoreBooks(books);
                 return Ok();

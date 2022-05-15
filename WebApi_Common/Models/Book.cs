@@ -12,7 +12,9 @@ namespace WebApi_Common.Models
         public string Author { get; set; }
         public string Title { get; set; }
         public bool IsBorrowed { get; set; }
+        public string NameOfBorrower { get; set; }
         public DateTime DateOfBorrowing { get; set; }
+        public DateTime DateOfReturn { get; set; }
 
         public override string ToString()
         {
