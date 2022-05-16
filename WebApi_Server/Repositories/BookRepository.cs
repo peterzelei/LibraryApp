@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using WebApi_Common.Models;
 
@@ -7,24 +8,55 @@ namespace WebApi_Server.Repositories
 {
     public static class BookRepository
     {
-        private const string filename = "Books.json";
-
         public static IEnumerable<Book> GetBooks()
         {
-            if (File.Exists(filename))
+            using (var database = new BookContext())
             {
-                var rawData = File.ReadAllText(filename);
-                var books = JsonSerializer.Deserialize<IEnumerable<Book>>(rawData);
+                var books = database.Books.ToList();
+
                 return books;
             }
-
-            return new List<Book>();
         }
 
-        public static void StoreBooks(IEnumerable<Book> books)
+        public static Book GetBook(long id)
         {
-            var rawData = JsonSerializer.Serialize(books);
-            File.WriteAllText(filename, rawData);
+            using (var database = new BookContext())
+            {
+                var person = database.Books.ToList().Where(b => b.Id == id).FirstOrDefault();
+
+                return person;
+            }
+
+        }
+
+        public static void AddBook(Book book)
+        {
+            using (var database = new BookContext())
+            {
+                database.Books.Add(book);
+
+                database.SaveChanges();
+            }
+        }
+
+        public static void UpdateBook(Book book)
+        {
+            using (var database = new BookContext())
+            {
+                database.Books.Update(book);
+
+                database.SaveChanges();
+            }
+        }
+
+        public static void DeleteBook(Book book)
+        {
+            using (var database = new BookContext())
+            {
+                database.Books.Remove(book);
+
+                database.SaveChanges();
+            }
         }
     }
 }

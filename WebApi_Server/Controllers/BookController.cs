@@ -20,9 +20,7 @@ namespace WebApi_Server.Controllers
         [HttpGet("{id}")]
         public ActionResult<Book> Get(int id)
         {
-            var books = BookRepository.GetBooks();
-
-            var book = books.FirstOrDefault(b => b.Id == id);
+            var book = BookRepository.GetBook(id);
             if (book != null)
             {
                 return Ok(book);
@@ -34,35 +32,23 @@ namespace WebApi_Server.Controllers
         [HttpPost]
         public ActionResult Post([FromBody]Book book)
         {
-            var books = BookRepository.GetBooks().ToList();
-
-            book.Id = GetNewId(books);
             book.IsBorrowed = false;
             book.NameOfBorrower = string.Empty;
             book.DateOfBorrowing = System.DateTime.MinValue;
             book.DateOfReturn = System.DateTime.MinValue;
-            books.Add(book);
-
-            BookRepository.StoreBooks(books);
+           
+            BookRepository.AddBook(book);
             return Ok();
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody]Book book)
+        public ActionResult Put([FromBody]Book book, long id)
         {
-            var books = BookRepository.GetBooks().ToList();
+            var bookToUpdate = BookRepository.GetBook(id);
 
-            var bookToUpdate = books.FirstOrDefault(b => b.Id == book.Id);
             if (bookToUpdate != null)
-            {
-                bookToUpdate.Author = book.Author;
-                bookToUpdate.Title = book.Title;
-                bookToUpdate.IsBorrowed = book.IsBorrowed;
-                bookToUpdate.NameOfBorrower = book.NameOfBorrower;
-                bookToUpdate.DateOfBorrowing = book.DateOfBorrowing;
-                bookToUpdate.DateOfReturn = book.DateOfReturn;
-
-                BookRepository.StoreBooks(books);
+            {  
+                BookRepository.UpdateBook(bookToUpdate);
                 return Ok();
             }
 
@@ -72,14 +58,11 @@ namespace WebApi_Server.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var books = BookRepository.GetBooks().ToList();
+            var bookToDelete = BookRepository.GetBook(id);
 
-            var bookToDelete = books.FirstOrDefault(b => b.Id == id);
             if (bookToDelete != null)
             {
-                books.Remove(bookToDelete);
-
-                BookRepository.StoreBooks(books);
+                BookRepository.AddBook(bookToDelete);
                 return Ok();
             }
 
