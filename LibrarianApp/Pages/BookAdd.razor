@@ -1,0 +1,16 @@
+﻿@page "/add"
+@using WebApi_Common.Models
+
+<EditForm Model="@Book" OnInvalidSubmit="@SubmitForm">
+    <div class="form-group row">
+        <label for="Title" class="col-sm-3">First name:</label>
+        <InputText id="title" class="form-control col-sm-8" @bind-Value="@Book.Title" placeholder="Enter title"></InputText>
+    </div>
+
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-3">Last name:</label>
+        <InputText id="lasttName" class="form-control col-sm-8" @bind-Value="@Book.Author" placeholder="Enter author"></InputText>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</EditForm>
