@@ -29,6 +29,18 @@ namespace WebApi_Server.Controllers
             return NotFound();
         }
 
+        [HttpGet("{borrower}")]
+        public ActionResult<Book> Get(string borrower)
+        {
+            var books = BookRepository.GetBooksOfBorrower(borrower);
+            if (books != null)
+            {
+                return Ok(books);
+            }
+
+            return NotFound();
+        }
+
         [HttpPost]
         public ActionResult Post([FromBody]Book book)
         {

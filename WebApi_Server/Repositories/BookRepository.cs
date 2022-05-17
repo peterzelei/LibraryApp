@@ -29,6 +29,17 @@ namespace WebApi_Server.Repositories
 
         }
 
+        public static IEnumerable<Book> GetBooksOfBorrower(string borrower)
+        {
+            using (var database = new BookContext())
+            {
+                var books = database.Books.ToList().Where(b => b.NameOfBorrower == borrower).ToList();
+
+                return books;
+            }
+
+        }
+
         public static void AddBook(Book book)
         {
             using (var database = new BookContext())
