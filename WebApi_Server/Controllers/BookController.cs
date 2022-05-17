@@ -53,7 +53,7 @@ namespace WebApi_Server.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult Put([FromBody]Book book, long id)
         {
             var bookToUpdate = BookRepository.GetBook(id);

@@ -10,8 +10,8 @@ using WebApi_Server.Repositories;
 namespace WebApi_Server.Migrations
 {
     [DbContext(typeof(BookContext))]
-    [Migration("20220516124137_initialCreate")]
-    partial class initialCreate
+    [Migration("20220517160614_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
