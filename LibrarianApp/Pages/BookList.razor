@@ -38,12 +38,12 @@ else
                    <td>@book.DateOfBorrowing.ToShortDateString()</td>
                    <td>@book.DateOfReturn.ToShortDateString()</td>
                    <td>
-                       <a href="@($"books/{book.Id}")" class="btn btn-info table-btn">Info</a>
+                       <a href="@($"persons/{book.Id}")" class="btn btn-info table-btn">Info</a>
                    </td>
                    @if (!book.IsBorrowed)
                     {
                         <td>
-                            <a href="@($"books/{book.Id}/edit")" class="btn btn-primary table-btn">Edit</a>
+                            <a href="@($"persons/{book.Id}/edit")" class="btn btn-primary table-btn">Edit</a>
                         </td>
                     }
                     else
