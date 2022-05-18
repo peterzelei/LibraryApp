@@ -45,7 +45,9 @@ namespace WebApi_Server
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapControllers();
+                endpoints.MapFallbackToFile("index.html");
             });
         }
     }

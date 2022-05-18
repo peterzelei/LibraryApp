@@ -42,7 +42,7 @@ namespace WebApi_Server.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]Book book)
+        public ActionResult Post(Book book)
         {
             book.IsBorrowed = false;
             book.NameOfBorrower = string.Empty;

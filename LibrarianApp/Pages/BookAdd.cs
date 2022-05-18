@@ -19,11 +19,6 @@ namespace LibrarianApp.Pages
 
         private async Task SubmitForm()
         {
-            Book.IsBorrowed = false;
-            Book.NameOfBorrower = "";
-            Book.DateOfBorrowing = new DateTime();
-            Book.DateOfReturn = new DateTime();
-
             await HttpClient.PostAsJsonAsync("book", Book);
             NavigationManager.NavigateTo("books");
         }
