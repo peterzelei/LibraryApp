@@ -1,0 +1,30 @@
+﻿@page "/books"
+
+<h1>Books</h1>
+
+@if (Books == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Rental Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Books.Where(b => b.IsBorrowed == false).ToList())
+           {
+               <tr>
+                   <td>@book.Title</td>
+                   <td>@book.Author</td>
+                   <td>Available</td>
+                </tr>
+           }
+        </tbody>
+    </table>
+}
