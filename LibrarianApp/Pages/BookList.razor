@@ -14,9 +14,6 @@ else
                 <th>Title</th>
                 <th>Author</th>
                 <th>Rental Status</th>
-                <th>Name of Borrower</th>
-                <th>Date of Borrowing</th>
-                <th>Date of Return</th>
             </tr>
         </thead>
         <tbody>
@@ -33,17 +30,13 @@ else
                     {
                         <td>Available</td>
                     }
-
-                   <td>@book.NameOfBorrower</td>
-                   <td>@book.DateOfBorrowing.ToShortDateString()</td>
-                   <td>@book.DateOfReturn.ToShortDateString()</td>
                    <td>
-                       <a href="@($"persons/{book.Id}")" class="btn btn-info table-btn">Info</a>
+                       <a href="@($"books/{book.Id}")" class="btn btn-info table-btn">Info</a>
                    </td>
                    @if (!book.IsBorrowed)
                     {
                         <td>
-                            <a href="@($"persons/{book.Id}/edit")" class="btn btn-primary table-btn">Edit</a>
+                            <a href="@($"books/{book.Id}/edit")" class="btn btn-primary table-btn">Edit</a>
                         </td>
                     }
                     else

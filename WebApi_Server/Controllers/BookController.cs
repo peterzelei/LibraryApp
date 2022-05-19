@@ -18,24 +18,13 @@ namespace WebApi_Server.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Book> Get(int id)
+        public ActionResult<Book> Get(long id)
         {
             var book = BookRepository.GetBook(id);
+
             if (book != null)
             {
                 return Ok(book);
-            }
-
-            return NotFound();
-        }
-
-        [HttpGet("{borrower}")]
-        public ActionResult<Book> Get(string borrower)
-        {
-            var books = BookRepository.GetBooksOfBorrower(borrower);
-            if (books != null)
-            {
-                return Ok(books);
             }
 
             return NotFound();
@@ -74,7 +63,7 @@ namespace WebApi_Server.Controllers
 
             if (bookToDelete != null)
             {
-                BookRepository.AddBook(bookToDelete);
+                BookRepository.DeleteBook(bookToDelete);
                 return Ok();
             }
 
