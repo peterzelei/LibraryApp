@@ -1,0 +1,28 @@
+﻿@page "/books"
+
+<h3>Available books in our library</h3>
+
+@if (Books == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class=table>
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Books)
+            {
+                <tr>
+                    <td>@book.Author</td>
+                    <td>@book.Title</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
