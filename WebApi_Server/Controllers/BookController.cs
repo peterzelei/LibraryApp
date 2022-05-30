@@ -48,8 +48,8 @@ namespace WebApi_Server.Controllers
             var bookToUpdate = BookRepository.GetBook(id);
 
             if (bookToUpdate != null)
-            {  
-                BookRepository.UpdateBook(bookToUpdate);
+            {
+                BookRepository.UpdateBook(book);
                 return Ok();
             }
 

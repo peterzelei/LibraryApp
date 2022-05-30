@@ -36,7 +36,7 @@ else
                    @if (!book.IsBorrowed)
                     {
                         <td>
-                            <a href="@($"books/{book.Id}/edit")" class="btn btn-primary table-btn">Edit</a>
+                            <a href="@($"books/{book.Id}/borrow")" class="btn btn-primary table-btn">Borrow</a>
                         </td>
                     }
                     else
