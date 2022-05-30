@@ -1,0 +1,33 @@
+﻿@page "/librarycard"
+
+<h3>My Personal Library Card</h3>
+<br />
+<div class="form-group row">
+    <label for="name" class="col-sm-3">Your name: </label>
+    <input id="name" class="form-control col-sm-8" @bind-value="@Name" placeholder="Enter your name"></input>
+</div>
+
+<p>@Name</p>
+
+<table class=table>
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Date of Return</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Books != null)
+        {
+            @foreach (var book in Books)
+            {
+                <tr>
+                    <td>@book.Author</td>
+                    <td>@book.Title</td>
+                    <td>@book.DateOfReturn</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
