@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
 using WebApi_Common.Models;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace LibrarianApp.Pages
 {
@@ -17,6 +18,15 @@ namespace LibrarianApp.Pages
         {
             Books = await HttpClient.GetFromJsonAsync<Book[]>("book");
             await base.OnInitializedAsync();
+        }
+
+        private async Task  UpdateRentalStatus(long BookID,Book Book)
+        {
+            Book.IsBorrowed = false;
+            Book.DateOfReturn = System.DateTime.MinValue;
+            Book.DateOfBorrowing = System.DateTime.MinValue;
+            Book.NameOfBorrower = "";
+            await HttpClient.PutAsJsonAsync($"book/{BookID}", Book);
         }
     }
 }

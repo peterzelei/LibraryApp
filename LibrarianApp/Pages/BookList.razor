@@ -41,7 +41,11 @@ else
                     }
                     else
                     {
-                        <td></td>
+                        <td>
+                            <button type="submit" class="btn btn-success table-btn" @onclick="@(e => UpdateRentalStatus(book.Id, book))">
+                                Return
+                            </button>
+                        </td>
                     }
                 </tr>
            }

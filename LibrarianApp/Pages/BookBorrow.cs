@@ -30,6 +30,7 @@ namespace LibrarianApp.Pages
         private async Task SubmitForm()
         {
             Book.IsBorrowed = true;
+            Book.DateOfBorrowing = DateTime.Now;
             await HttpClient.PutAsJsonAsync($"book/{BookID}", Book);
             NavigationManager.NavigateTo($"books/{BookID}");
         }
