@@ -22,10 +22,7 @@ namespace LibrarianApp.Pages
 
         private async Task  UpdateRentalStatus(long BookID,Book Book)
         {
-            Book.IsBorrowed = false;
-            Book.DateOfReturn = System.DateTime.MinValue;
-            Book.DateOfBorrowing = System.DateTime.MinValue;
-            Book.NameOfBorrower = "";
+            Book.Initialize();
             await HttpClient.PutAsJsonAsync($"book/{BookID}", Book);
         }
     }

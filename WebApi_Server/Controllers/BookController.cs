@@ -33,10 +33,7 @@ namespace WebApi_Server.Controllers
         [HttpPost]
         public ActionResult Post(Book book)
         {
-            book.IsBorrowed = false;
-            book.NameOfBorrower = string.Empty;
-            book.DateOfBorrowing = System.DateTime.MinValue;
-            book.DateOfReturn = System.DateTime.MinValue;
+            book.Initialize();
            
             BookRepository.AddBook(book);
             return Ok();

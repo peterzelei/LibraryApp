@@ -22,5 +22,13 @@ namespace WebApi_Common.Models
         {
             return $"{Author}: {Title}";
         }
+
+        public void Initialize()
+        {
+            IsBorrowed = false;
+            NameOfBorrower = "";
+            DateOfBorrowing = DateTime.MinValue;
+            DateOfReturn = DateTime.MinValue;
+        }
     }
 }
