@@ -4,10 +4,8 @@
 <br />
 <div class="form-group row">
     <label for="name" class="col-sm-3">Your name: </label>
-    <input id="name" class="form-control col-sm-8" @bind-value="@Name" placeholder="Enter your name"></input>
+    <input id="name" class="form-control col-sm-8" @bind-value="@SearchName" @bind-value:event="oninput" placeholder="Enter your name"></input>
 </div>
-
-<p>@Name</p>
 
 <table class=table>
     <thead>
@@ -20,7 +18,7 @@
     <tbody>
         @if (Books != null)
         {
-            @foreach (var book in Books)
+            @foreach (var book in FilteredBooks)
             {
                 <tr>
                     <td>@book.Author</td>
