@@ -1,7 +1,7 @@
 ﻿@page "/add"
 @using WebApi_Common.Models
 
-<EditForm Model="@Book" OnInvalidSubmit="@SubmitForm" OnValidSubmit="@SubmitForm">
+<EditForm Model="@Book" OnValidSubmit="@SubmitForm">
     <div class="form-group row">
         <label for="Title" class="col-sm-3">Title:</label>
         <InputText id="title" class="form-control col-sm-8" @bind-Value="@Book.Title" placeholder="Enter title"></InputText>
