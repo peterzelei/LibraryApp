@@ -33,8 +33,6 @@ namespace WebApi_Server.Controllers
         [HttpPost]
         public ActionResult Post(Book book)
         {
-            book.Initialize();
-           
             BookRepository.AddBook(book);
             return Ok();
         }

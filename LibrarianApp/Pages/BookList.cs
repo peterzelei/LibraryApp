@@ -29,7 +29,7 @@ namespace LibrarianApp.Pages
 
         private async Task UpdateRentalStatus(long BookID, Book Book)
         {
-            Book.Initialize();
+            Book.IsBorrowed = false;
             await HttpClient.PutAsJsonAsync($"book/{BookID}", Book);
         }
     }
