@@ -12,10 +12,10 @@ namespace WebApi_Common.Models
         [Key]
         public long Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Author field is required!")]
         public string Author { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Title field is required!")]
         public string Title { get; set; }
 
         [Required]
@@ -34,12 +34,12 @@ namespace WebApi_Common.Models
             return $"{Author}: {Title}";
         }
 
-        public void Initialize()
+        public Book()
         {
             IsBorrowed = false;
-            NameOfBorrower = "";
-            DateOfBorrowing = DateTime.MinValue;
-            DateOfReturn = DateTime.MinValue;
+            NameOfBorrower = "No previous borrower";
+            DateOfBorrowing = DateTime.MaxValue;
+            DateOfReturn = DateTime.MaxValue;
         }
     }
 }
