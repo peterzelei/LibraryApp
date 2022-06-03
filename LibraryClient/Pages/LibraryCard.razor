@@ -20,11 +20,21 @@
         {
             @foreach (var book in FilteredBooks)
             {
-                <tr>
-                    <td>@book.Author</td>
-                    <td>@book.Title</td>
-                    <td>@book.DateOfReturn</td>
-                </tr>
+                if (DateTime.Compare(book.DateOfReturn, DateTime.Now) <= 0)
+                {
+                    <tr bgcolor=#fc4242>
+                        <td>@book.Author</td>
+                        <td>@book.Title</td>
+                        <td>@book.DateOfReturn.Date.ToShortDateString()</td>
+                    </tr>
+                } else
+                {
+                    <tr>
+                        <td>@book.Author</td>
+                        <td>@book.Title</td>
+                        <td>@book.DateOfReturn.Date.ToShortDateString()</td>
+                    </tr>
+                }
             }
         }
     </tbody>
