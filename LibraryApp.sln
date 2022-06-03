@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common", "WebApi_Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrarianApp", "LibrarianApp\LibrarianApp.csproj", "{124283DC-693A-4253-9FF0-60034B187EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryClient", "LibraryClient\LibraryClient.csproj", "{40DFF34B-FB19-4D13-9757-6A80F7C59706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryClient", "LibraryClient\LibraryClient.csproj", "{40DFF34B-FB19-4D13-9757-6A80F7C59706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common.Tests", "WebApi_Common.Tests\WebApi_Common.Tests.csproj", "{FACE2C2E-7728-4565-A91F-D43176190907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{40DFF34B-FB19-4D13-9757-6A80F7C59706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40DFF34B-FB19-4D13-9757-6A80F7C59706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40DFF34B-FB19-4D13-9757-6A80F7C59706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACE2C2E-7728-4565-A91F-D43176190907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACE2C2E-7728-4565-A91F-D43176190907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACE2C2E-7728-4565-A91F-D43176190907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACE2C2E-7728-4565-A91F-D43176190907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

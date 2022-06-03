@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApi_Common.Models
 {
-    class BorrowerNameValidation : ValidationAttribute
+    public class BorrowerNameValidation : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
