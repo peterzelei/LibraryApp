@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApi_Common.Models
 {
-    internal class ReturnDateValidation : ValidationAttribute
+    public class ReturnDateValidation : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
