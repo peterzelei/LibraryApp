@@ -24,6 +24,8 @@ namespace LibrarianApp.Pages
         protected override async Task OnInitializedAsync()
         {
             Book = await HttpClient.GetFromJsonAsync<Book>($"book/{BookID}");
+            Book.NameOfBorrower = String.Empty;
+            Book.DateOfReturn = DateTime.Now;
             await base.OnInitializedAsync();
         }
 
