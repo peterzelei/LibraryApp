@@ -2,9 +2,14 @@
 
 <h3>Available books in our library</h3>
 
+<div class="form-group row">
+        <label for="name" class="col-sm-3">Search a book: </label>
+        <input id="name" class="form-control col-sm-8" @bind-value="SearchText" @bind-value:event="oninput" placeholder="Search book by title or author"></input>
+</div>
+
 @if (Books == null)
 {
-    <p>Loading...</p>
+    <LoadingAnimation />
 }
 else
 {
@@ -16,7 +21,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var book in Books)
+            @foreach (var book in FilteredBooks)
             {
                 <tr>
                     <td>@book.Author</td>

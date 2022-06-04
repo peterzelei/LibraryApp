@@ -13,11 +13,17 @@ namespace LibraryClient.Pages
         [Inject]
         public HttpClient HttpClient { get; set; }
 
-        public IEnumerable<Book> Books { get; set; }
+        public Book[] Books { get; set; }
+
+        public string SearchText = "";
+
+        public IEnumerable<Book> FilteredBooks =>
+            Books.Where(b => b.Title.ToLower().Contains(SearchText.ToLower()) || b.Author.ToLower().Contains(SearchText.ToLower()))
+                 .Where(b => !b.IsBorrowed);
 
         protected override async Task OnInitializedAsync()
         {
-            Books = (await HttpClient.GetFromJsonAsync<Book[]>("book")).Where(b => b.IsBorrowed == false);
+            Books = await HttpClient.GetFromJsonAsync<Book[]>("book");
             await base.OnInitializedAsync();
         }
     }
