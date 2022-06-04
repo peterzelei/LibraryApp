@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using WebApi_Common.Models;
 using WebApi_Server.Repositories;
 
@@ -38,7 +37,7 @@ namespace WebApi_Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody]Book book, long id)
+        public ActionResult Put([FromBody] Book book, long id)
         {
             var bookToUpdate = BookRepository.GetBook(id);
 
@@ -63,20 +62,6 @@ namespace WebApi_Server.Controllers
             }
 
             return NotFound();
-        }
-
-        private long GetNewId(IEnumerable<Book> books)
-        {
-            long newId = 0;
-            foreach (var book in books)
-            {
-                if (book.Id > newId)
-                {
-                    newId = book.Id;
-                }
-            }
-
-            return newId + 1;
         }
     }
 }

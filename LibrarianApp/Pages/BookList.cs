@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Net.Http.Json;
-using WebApi_Common.Models;
-using Microsoft.AspNetCore.Components.Web;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using WebApi_Common.Models;
 
 namespace LibrarianApp.Pages
 {
@@ -16,9 +15,9 @@ namespace LibrarianApp.Pages
 
         public Book[] Books { get; set; }
 
-        private string SearchText = "";
+        public string SearchText = "";
 
-        private IEnumerable<Book> FilteredBooks => 
+        public IEnumerable<Book> FilteredBooks =>
             Books.Where(b => b.Title.ToLower().Contains(SearchText.ToLower()) || b.Author.ToLower().Contains(SearchText.ToLower()));
 
         protected override async Task OnInitializedAsync()

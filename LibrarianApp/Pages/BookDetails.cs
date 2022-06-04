@@ -14,10 +14,10 @@ namespace LibrarianApp.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public Book Book { get; set; } = new Book();
-
         [Parameter]
         public string BookID { get; set; }
+
+        public Book Book { get; set; } = new Book();
 
         protected override async Task OnInitializedAsync()
         {
