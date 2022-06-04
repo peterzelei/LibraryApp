@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrarianApp", "LibrarianAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryClient", "LibraryClient\LibraryClient.csproj", "{40DFF34B-FB19-4D13-9757-6A80F7C59706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common.Tests", "WebApi_Common.Tests\WebApi_Common.Tests.csproj", "{FACE2C2E-7728-4565-A91F-D43176190907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common.Tests", "WebApi_Common.Tests\WebApi_Common.Tests.csproj", "{FACE2C2E-7728-4565-A91F-D43176190907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
