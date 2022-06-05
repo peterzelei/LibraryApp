@@ -10,8 +10,8 @@ using WebApi_Server.Repositories;
 namespace WebApi_Server.Migrations
 {
     [DbContext(typeof(BookContext))]
-    [Migration("20220531093417_TestData")]
-    partial class TestData
+    [Migration("20220605102832_addAnnotations")]
+    partial class addAnnotations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,7 @@ namespace WebApi_Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Author")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfBorrowing")
@@ -44,6 +45,7 @@ namespace WebApi_Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
